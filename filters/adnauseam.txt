@@ -8,7 +8,7 @@ www.ask.com##.tsrc_SAS
 www.ask.com###megaLabel
 www.ask.com###csaBottom
 
-#TEXT AD ask.com 
+#TEXT AD ask.com
 google.com###adBlock > .ad.a_
 
 www.zam.com##.ad
@@ -88,6 +88,24 @@ qq.com##iframe[src*='gtimg']
 ##DIV[class*="zmall-ad"]
 ##iframe[src*='zol.com.cn/ad/']
 ##DIV[class="ad-box"]
+
+
+# Fortune.com
+##.SB_16.ob-strip-layout.ob-widget > .ob-first.ob-widget-section > .ob-widget-items-container:nth-of-type(1)
+##.SB_16.ob-strip-layout.ob-widget > .ob-first.ob-widget-section > .ob-row-1.ob-multi-row.ob-widget-items-container
+##.SB_16.ob-strip-layout.ob-widget > .ob-first.ob-widget-section > .ob-widget-header
+##.small-12.column > .row:nth-of-type(2) > .small-12.column > .row > .large-3.medium-6.small-12.column:nth-of-type(2)
+##.small-12.column > .row:nth-of-type(2) > .small-12.column > .row > .large-3.medium-6.small-12.column:nth-of-type(3) > ._2cCPyP5f.row
+##.small-12.column > .row:nth-of-type(2) > .small-12.column > .row > .large-3.medium-6.small-12.column:nth-of-type(4) > ._2cCPyP5f.row
+##.small-12.column > .row:nth-of-type(2) > .small-12.column > .row > .large-3.medium-6.small-12.column:nth-of-type(1) > ._2cCPyP5f.row
+##.small-12.column:nth-of-type(9) > .row > .small-12.column > .row:nth-of-type(1)
+##.SB_16.ob-strip-layout.ob-widget > .ob_what
+##.large-8.small-12.column > .row > .small-12.column > .tWo0WoSf.row > .small-12.column > .row
+##.large-8.small-12.column > .row > .small-12.column > .tWo0WoSf.row > .small-12.column > .row
+##.SB_16.ob-strip-layout.ob-widget > .ob_what
+##._6yv0lClM.all-caps.size-1x-large.font-accent.text.row
+||products.gobankingrates.com/r/826fbcd918cfeef729e5c32d753e1ecf?subid=
+@@||widgets.outbrain.com/outbrain.js^
 
 ＃ baidu.com
 ##.ad-imax
