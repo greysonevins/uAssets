@@ -91,19 +91,15 @@ qq.com##iframe[src*='gtimg']
 
 
 # Fortune.com
+##div[id^="outbrain_widget"]
 ##img[src*='dianomi.com/img/']
-@@||widgets.outbrain.com/outbrain.js^
-||images.outbrain.com^
 ##iframe[src*="gobankingrates.com"]
-fortune.com##.SB_16.ob-strip-layout.ob-widget
-fortune.com##._6yv0lClM.all-caps.size-1x-large.font-accent.text.row
-fortune.com####.small-12.column:nth-of-type(8) > ._2bnZiB_7.row > ._3sDrBk7f.column.small-12
-fortune.com##.small-12.column > .row:nth-of-type(2) > .small-12.column > .row > .large-3.medium-6.small-12.column:nth-of-type(2)
-fortune.com##.small-12.column > .row:nth-of-type(2) > .small-12.column > .row > .large-3.medium-6.small-12.column:nth-of-type(3) > ._2cCPyP5f.row
-fortune.com##.small-12.column > .row:nth-of-type(2) > .small-12.column > .row > .large-3.medium-6.small-12.column:nth-of-type(4) > ._2cCPyP5f.row
-fortune.com##.small-12.column > .row:nth-of-type(2) > .small-12.column > .row > .large-3.medium-6.small-12.column:nth-of-type(1) > ._2cCPyP5f.row
-fortune.com##.small-12.column:nth-of-type(9) > .row > .small-12.column > .row:nth-of-type(1)
-
+fortune.com##.ob-strip-layout.ob-widget
+fortune.com##._6yv0lClM
+fortune.com##._21UDzFnr
+fortune.com##._3sDrBk7f
+fortune.com##.small-12.column:nth-of-type(9) > .row
+fortune.com##.small-12.column > .row:nth-of-type(2) > .small-12.column > .row > .large-3.medium-6.small-12.column
 
 ＃ baidu.com
 ##.ad-imax
@@ -267,7 +263,6 @@ optoclick.net##.vjs-poster
 ||revsci.net^
 ||pubmatic.com/
 ||gravity.com^*/beacons/
-||adsafeprotected.com
 /mbox.orig.js^$important
 /tacoda.^$important
 /tacoda_^$important
@@ -325,6 +320,9 @@ optoclick.net##.vjs-poster
 @@||stats.g.doubleclick.net^
 @@||googleadservices.com^$third-party
 @@||pixanalytics.com^$third-party
+@@||widgets.outbrain.com/outbrain.js^
+@@||adsafeprotected.com
+@@||serving-sys.com^$third-party
 
 # Reference Only
 @@||pagead2.googlesyndication.com/pagead/osd.js
