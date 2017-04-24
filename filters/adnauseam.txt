@@ -217,6 +217,18 @@ radikal.ru##div[id^="DIV_DA_ADP"]
 ##img[src*="delivery.clickganic.com"]
 optoclick.net##.vjs-poster
 
+# dailymotion.com
+dailymotion.com##.gwd-page-content
+dailymotion.com##.gwd-page-container
+
+# Google ads
+#@#.adsbygoogle
+##iframe[id="ad_iframe"]
+###google_image_div
+
+# common ad in cz
+##div[id^="bmone"]
+
 # Blocking rules below here
 ||images.sohu.com/bill/s2015/jscript/lib/sjs/matrix/ad/form/bigView.js^$important
 ||teads.tv^$important,third-party,domain=mingpao.com
@@ -338,12 +350,3 @@ optoclick.net##.vjs-poster
 
 # crunchyroll.com
 ||v.fwmrm.net^$important,third-party,domain=crunchyroll.com
-
-# dailymotion.com
-dailymotion.com##.gwd-page-content
-dailymotion.com##.gwd-page-container
-
-# Google ads
-#@#.adsbygoogle
-##iframe[id="ad_iframe"]
-###google_image_div
