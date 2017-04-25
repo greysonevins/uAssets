@@ -38,6 +38,9 @@ piratebay.com##img[src*="exdynsrv.com"]
 # marinetraffic.com
 ##.home-page.has-ad-space.container-fluid > .upper.row > .hidden-print.vertical-offset-5 > .mtseventwentyeight > a[href^="/en/p/plans"] > img[src="/img/upper_02.gif"]
 
+# abclinuxu.cz
+##a[href*="bbelements.com"]
+
 # asiaxpat
 ##.AdBanner
 asiaxpat.com##.header_in1
@@ -64,6 +67,10 @@ columbiagreenemedia.com###sawyer_container
 ##iframe[src*='g.163.com']
 163.com##a[href*='AID']
 ##a[href*='kaolaad']
+
+# root.cz
+root.cz##.owl-stage-outer
+root.cz##.promo
 
 # sohu.com
 sohu.com##DIV[class^="ad_"]
