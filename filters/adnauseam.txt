@@ -250,6 +250,9 @@ dailymotion.com##.gwd-page-container
 # adage.com
 ||gaia.adage.com/assets/js/min/adBlockDetector.js^$important,script,first-party
 
+# www.batmanstream.com
+||adbetnet.advertserve.com^$important,domain=batmanstream.com
+
 # bing.com
 ||www.bing.com/rms/rms%20answers%20Identity%20SnrWindowsLiveConnectBootstrap/jc,nj/bf587ad6/f1d86b5a.js^$important
 
