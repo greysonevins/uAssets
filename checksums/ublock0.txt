@@ -1,11 +1,11 @@
 d9b9af1f8e2d3fc404213c969904dc80 assets/ublock/filter-lists.json
 cadc15e72055199b194392c3e6814948 assets/ublock/badware.txt
 013363b068a39912b2261724b2a66306 assets/ublock/experimental.txt
-8e48d94f7c7206948fbc12864b831373 assets/ublock/filters.txt
-fd9c595b155f372080617bc56fa9343f assets/ublock/privacy.txt
-f3b91943de7b8662b4e2bdc0d68fc706 assets/ublock/resources.txt
-ca1ab39636e516b2c668d7a82b0bd5c9 assets/ublock/unbreak.txt
-2e716b4f703020e4cf45ddda54a39306 assets/ublock/adnauseam.txt
+7cf41ea75e384104643e5a044f675cd2 assets/ublock/filters.txt
+8232b8fff5f816bbb63472b04562dc1d assets/ublock/privacy.txt
+c899a253ceaebf97d9b89c1175ea3867 assets/ublock/resources.txt
+da4b30ed26e791b9aeaf35fb6c8166d5 assets/ublock/unbreak.txt
+d3d8810b842934a63ad34b7c937b4ccb assets/ublock/adnauseam.txt
 606d0909f48e011c6ac997e224ab8f67 assets/thirdparties/easylist-downloads.adblockplus.org/easylist.txt
 4b599ed6a90f232bc2506bd227f7bc16 assets/thirdparties/easylist-downloads.adblockplus.org/easyprivacy.txt
 202244a7b3d0a9a739b51a7434b626c1 assets/thirdparties/mirror1.malwaredomains.com/files/justdomains
