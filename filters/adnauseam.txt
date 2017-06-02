@@ -272,6 +272,9 @@ dailymotion.com##.gwd-page-container
 ||rtax.criteo.com^$important
 ||b3.mookie1.com^$important
 
+#SoundCloud
+||soundcloud.com/audio-ad?
+
 #Trackers[Verified]
 ||scorecardresearch.com^$third-party
 ||assets.adobedtm.com^third-party
