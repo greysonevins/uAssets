@@ -49,6 +49,8 @@ asiaxpat.com###pnlClassReplaced
 asiaxpat.com##.main_content_rit
 asiaxpat.com###BusyBox6
 asiaxpat.com##.renaud
+hongkong.asiaxpat.com###fade
+hongkong.asiaxpat.com###light
 
 # documentaryheaven
 ##iframe[src*="cse.google.com"]
