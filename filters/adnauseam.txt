@@ -234,6 +234,8 @@ dailymotion.com##.gwd-page-container
 #@#.adsbygoogle
 ##iframe[id="ad_iframe"]
 ###google_image_div
+# Google map ads on Search
+google.*##.mnr-c.rl-qs-crs-t._Db > ._gt:has(._mB)
 
 # common ad in cz
 ##div[id^="bmone"]
