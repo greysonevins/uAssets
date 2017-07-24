@@ -276,6 +276,9 @@ google.*##.mnr-c.rl-qs-crs-t._Db > ._gt:has(._mB)
 ||rtax.criteo.com^$important
 ||b3.mookie1.com^$important
 
+#securityaffairs.co
+||contextual.media.net^
+
 #SoundCloud
 ||soundcloud.com/audio-ad?
 
