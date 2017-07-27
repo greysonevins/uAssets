@@ -315,7 +315,6 @@ google.*##.mnr-c.rl-qs-crs-t._Db > ._gt:has(._mB)
 ||o.aolcdn.com/ads/adchoices.png^$important
 ||tpc.googlesyndication.com/pagead/images/x_button^$important
 ||googleads.g.doubleclick.net/pagead/images/abg/icon^$important
-||gstatic.com/images/branding/googlelogo^$important
 
 # Rubicon tracking section
 ||rubiconproject.com/beacon^$important
