@@ -130,6 +130,8 @@ forbes.com##div[id*='ads']
 ##DIV[class*="header_ad_container"] > div
 ##DIV[class*="rec-ad"]
 
+fmovies.is##.mgline
+
 www.pcmag.com##.deal-widget
 pcmag.com##*[class*="flite"]
 pcmag.com##DIV[id*="pcmedia"]
