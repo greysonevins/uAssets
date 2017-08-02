@@ -144,6 +144,12 @@ theatlantic.com###tl_main_single
 # creativebloq.com
 creativebloq.com##iframe[width="160px"][height="600px"]
 
+# reuters.com
+reuters.*#@#iframe[id^="google_ads_iframe"]
+reuters.*#@#div[id^="google_ads_iframe_"]
+reuters.*##div[id^="google_ads_iframe_"]
+reuters.*##.CanvasAd_container_sZDIL
+
 # wmoov.com
 ##a[href*='adsfactor']
 ##a[href*='adnxs']
