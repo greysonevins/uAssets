@@ -211,7 +211,6 @@ www.overclockers.ru##img[src^="/images/HP_"]
 ##div[id^="yandex_ad"]
 
 # gocurrycracker.com
-###amzn_assoc_ad_0
 ##*[id^="amzn_assoc_ad"]
 ##iframe[src*="amazon-adsystem.com"]
 ##.gqsvbds-single
@@ -290,7 +289,6 @@ google.*##.mnr-c.rl-qs-crs-t._Db > ._gt:has(._mB)
 ||postrelease.com^
 ||grvcdn.com/moth-min.js
 ||pointroll.com^
-||postrelease.com^
 ||effectivemeasure.net^
 ||advertising.com^
 ||adnxs.com^
