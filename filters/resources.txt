@@ -49,6 +49,27 @@ noopframe text/html
 </html>
 
 
+# From:
+#   https://ubuntuforums.org/showthread.php?t=1911430&p=11624471#post11624471
+# ffmpeg -ar 48000 -t 0.1 -f s16le -acodec pcm_s16le -ac 2 -i /dev/zero -acodec libmp3lame -aq 4 output.mp3
+# But with 0.1 (second) instead of 60.
+noopmp3-0.1s audio/mp3;base64
+SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU2LjQwLjEwMQAAAAAAAAAAAAAA//tUAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAASW5mbwAAAA8AAAAGAAADAABgYGBgYGBgYGBgYGBgYGBggICAgICA
+gICAgICAgICAgICgoKCgoKCgoKCgoKCgoKCgwMDAwMDAwMDAwMDAwMDAwMDg4ODg4ODg4ODg4ODg4ODg
+4P////////////////////8AAAAATGF2YzU2LjYwAAAAAAAAAAAAAAAAJAAAAAAAAAAAAwDNZKlY//sU
+ZAAP8AAAaQAAAAgAAA0gAAABAAABpAAAACAAADSAAAAETEFNRTMuOTkuNVVVVVVVVVVVVVVVVVVVVVVV
+VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//sUZB4P8AAAaQAAAAgAAA0gAAABAAABpAAA
+ACAAADSAAAAEVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+VVVVVVVVVVVV//sUZDwP8AAAaQAAAAgAAA0gAAABAAABpAAAACAAADSAAAAEVVVVVVVVVVVVVVVVVVVV
+VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//sUZFoP8AAAaQAAAAgA
+AA0gAAABAAABpAAAACAAADSAAAAEVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+VVVVVVVVVVVVVVVVVVVVVVVVVVVV//sUZHgP8AAAaQAAAAgAAA0gAAABAAABpAAAACAAADSAAAAEVVVV
+VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//sU
+ZJYP8AAAaQAAAAgAAA0gAAABAAABpAAAACAAADSAAAAEVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+
+
 hd-main.js application/javascript
 (function(){
 	var l = {};
@@ -320,10 +341,11 @@ google-analytics.com/inpage_linkid.js application/javascript
 google-analytics.com/cx/api.js application/javascript
 (function() {
 	var noopfn = function() {
-		;
 	};
 	window.cxApi = {
-		chooseVariation: noopfn,
+		chooseVariation: function() {
+			return 0;
+		},
 		getChosenVariation: noopfn,
 		setAllowHash: noopfn,
 		setChosenVariation: noopfn,
@@ -392,6 +414,7 @@ googletagservices.com/gpt.js application/javascript
 		enableVideoAds: noopfn,
 		get: noopnullfn,
 		getAttributeKeys: nooparrayfn,
+		getSlots: nooparrayfn,
 		refresh: noopfn,
 		set: noopthisfn,
 		setCategoryExclusion: noopthisfn,
@@ -463,14 +486,43 @@ googletagservices.com/gpt.js application/javascript
 	}
 })();
 
+
 # Obviously more work needs to be done, but at least for now it takes care of:
 # See related filter in assets/ublock/privacy.txt
+# Also:
+# - https://github.com/gorhill/uBlock/issues/2569
+# - https://github.com/uBlockOrigin/uAssets/issues/420
 googletagmanager.com/gtm.js application/javascript
 (function() {
 	var noopfn = function() {
-		;
 	};
-	window.ga = window.ga || noopfn;
+	var w = window;
+	w.ga = w.ga || noopfn;
+	var dl = w.dataLayer;
+	if ( dl instanceof Object === false ) { return; }
+	if ( dl.hide instanceof Object && typeof dl.hide.end === 'function' ) {
+		dl.hide.end();
+	}
+	if ( typeof dl.push === 'function' ) {
+		dl.push = function(o) {
+			if (
+				o instanceof Object &&
+				typeof o.eventCallback === 'function'
+			) {
+				setTimeout(o.eventCallback, 1);
+			}
+		};
+	}
+})();
+
+
+# https://github.com/uBlockOrigin/uAssets/issues/418
+googlesyndication.com/adsbygoogle.js application/javascript
+(function() {
+	window.adsbygoogle = window.adsbygoogle || {
+		push: function() {
+		}
+	};
 })();
 
 
@@ -536,17 +588,16 @@ pornhub-popup-defuser.js application/javascript
 (function() {
 	var w = window;
 	var count = Math.ceil(8+Math.random()*4);
-	var tomorrow = new Date(Date.now() + 86400);
-	var expire = tomorrow.toString();
-	document.cookie = 'FastPopSessionRequestNumber=' + count + '; expires=' + expire;
+	var tomorrow = new Date(Date.now() + 86400000);
+	document.cookie = 'FastPopSessionRequestNumber=' + count + '; expires=' + tomorrow.toUTCString();
 	var db;
 	if ( (db = w.localStorage) ) {
 		db.setItem('InfNumFastPops', count);
-		db.setItem('InfNumFastPopsExpire', expire);
+		db.setItem('InfNumFastPopsExpire', tomorrow.toISOString());
 	}
 	if ( (db = w.sessionStorage) ) {
 		db.setItem('InfNumFastPops', count);
-		db.setItem('InfNumFastPopsExpire', expire);
+		db.setItem('InfNumFastPopsExpire', tomorrow.toISOString());
 	}
 })();
 
@@ -621,38 +672,6 @@ openload.co.js application/javascript
 		},
 		turnoff: { value: true }
 	});
-})();
-
-
-# https://github.com/gorhill/uBlock/issues/1136
-1136.js application/javascript
-(function() {
-	var wjdmp;
-	var noopfn = function() {
-		;
-	};
-	var wjdmpGet = function() {
-		return wjdmp;
-	};
-	var wjdmpSet = function(a) {
-		wjdmp = function(r, o) {
-			var kk = Object.keys(o).sort(function(a, b) {
-				return parseInt(a) - parseInt(b);
-			});
-			var fn = o[kk[1]];
-			if ( typeof fn === 'function' && /adBreaks\.push/.test(fn.toString()) ) {
-				return;
-			}
-			a(r, o);
-		};
-	};
-	try {
-		Object.defineProperty(window, 'webpackJsonpdmp', {
-			get: wjdmpGet,
-			set: wjdmpSet
-		});
-	} catch(ex) {
-	}
 })();
 
 
@@ -841,16 +860,6 @@ bcplayer-defuser.js application/javascript
 			};
 		}
 	});
-})();
-
-
-# Might be useful on some sites to be able to foil all calls to `setTimeout`.
-# Example of a filter: `example.com##script:inject(setTimeout-defuser)`
-setTimeout-defuser application/javascript
-(function() {
-	window.setTimeout = function() {
-		return 1;
-	};
 })();
 
 
@@ -1392,6 +1401,18 @@ popads.net.js application/javascript
 })();
 
 
+# https://github.com/uBlockOrigin/uAssets/issues/503
+popads-dummy.js application/javascript
+(function() {
+	delete window.PopAds;
+	delete window.popns;
+	Object.defineProperties(window, {
+		PopAds: { value: {} },
+		popns: { value: {} }
+	});
+})();
+
+
 # https://forums.lanik.us/viewtopic.php?f=62&t=32070
 xvideos.com.js application/javascript
 (function() {
@@ -1530,17 +1551,22 @@ d3pkae9owd2lcf.cloudfront.net/mb105.js application/javascript
 (function() {
 	var noopfn = function(){};
 	window.pbjs = { libLoaded: true };
-	window.MonkeyBroker = window.MonkeyBroker || {
+	var mb = window.MonkeyBroker || {
 		addAttribute: noopfn,
-		addSlot: noopfn,
+		addSlot: function(a) {
+			this.slots[a.slot] = {};
+		},
 		defineSlot: noopfn,
 		fillSlot: noopfn,
 		go: noopfn,
 		inventoryConditionalPlacement: noopfn,
 		registerSizeCallback: noopfn,
 		registerSlotCallback: noopfn,
-		slots: {}
+		slots: {},
+		version: ''
 	};
+	mb.regSlotsMap = mb.slots;
+	window.MonkeyBroker = mb;
 })();
 
 
@@ -1555,15 +1581,6 @@ last.fm.js application/javascript
 		return st(a, b);
 	}.bind(window);
 	Object.defineProperty(window, 'setTimeout', { value: z });
-})();
-
-
-thefreedictionary.com.js application/javascript
-(function() {
-	window.warn = null;
-	window.onerror = function(msg, src, line, col, error) {
-		if ( typeof msg === 'string' && msg.indexOf('warn') !== -1 ) { return true; }
-	};
 })();
 
 
@@ -1679,7 +1696,7 @@ setTimeout-defuser.js application/javascript
 	var z = window.setTimeout,
 		needle = '{{1}}',
 		delay = parseInt('{{2}}', 10);
-	if ( needle === '' ) {
+	if ( needle === '' || needle === '{{1}}' ) {
 		needle = '.?';
 	} else if ( needle.slice(0,1) === '/' && needle.slice(-1) === '/' ) {
 		needle = needle.slice(1,-1);
@@ -1691,7 +1708,7 @@ setTimeout-defuser.js application/javascript
 		if ( (isNaN(delay) || b == delay) && needle.test(a.toString()) ) {
 			return 0;
 		}
-		return z(a, b);
+		return z.apply(this, arguments);
 	}.bind(window);
 })();
 
@@ -1702,7 +1719,7 @@ setTimeout-logger.js application/javascript
 		log = console.log.bind(console);
 	window.setTimeout = function(a, b) {
 		log('uBO: setTimeout("%s", %s)', a.toString(), b);
-		return z(a, b);
+		return z.apply(this, arguments);
 	}.bind(window);
 })();
 
@@ -1710,16 +1727,21 @@ setTimeout-logger.js application/javascript
 setInterval-defuser.js application/javascript
 (function() {
 	var z = window.setInterval,
-		delay = parseInt('{{2}}', 10),
-		needle = '{{1}}';
+		needle = '{{1}}',
+		delay = parseInt('{{2}}', 10);
+	if ( needle === '' || needle === '{{1}}' ) {
+		needle = '.?';
+	} else if ( needle.slice(0,1) === '/' && needle.slice(-1) === '/' ) {
+		needle = needle.slice(1,-1);
+	} else {
+		needle = needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+	}
+	needle = new RegExp(needle);
 	window.setInterval = function(a, b) {
-		if (
-			(isNaN(delay) || b == delay) &&
-			(needle === '' || a.toString().indexOf(needle) !== -1)
-		) {
+		if ( (isNaN(delay) || b == delay) && needle.test(a.toString()) ) {
 			return 0;
 		}
-		return z(a, b);
+		return z.apply(this, arguments);
 	}.bind(window);
 })();
 
@@ -1730,7 +1752,7 @@ setInterval-logger.js application/javascript
 		log = console.log.bind(console);
 	window.setInterval = function(a, b) {
 		log('uBO: setInterval("%s", %s)', a.toString(), b);
-		return z(a, b);
+		return z.apply(this, arguments);
 	}.bind(window);
 })();
 
@@ -1758,5 +1780,147 @@ sharedWorker-defuser.js application/javascript
 
 sidereel.com.js application/javascript
 (function() {
-    window.localStorage.setItem('__trex', Date.now() + 86400000);
+	window.localStorage.setItem('__trex', Date.now() + 86400000);
+})();
+
+
+# Ability to inject CSP in document, to further restrict what web pages can do.
+# Reference: https://www.w3.org/TR/CSP3/
+csp.js application/javascript
+(function() {
+	var doc = document;
+	if ( doc.head === null ) { return; }
+	var meta = doc.createElement('meta');
+	meta.setAttribute('http-equiv', 'Content-Security-Policy');
+	meta.setAttribute('content', '{{1}}');
+	doc.head.appendChild(meta);
+})();
+
+
+# https://github.com/uBlockOrigin/uAssets/issues/513
+entrepreneur.com.js application/javascript
+window.analyticsEvent = function(){};
+
+
+# https://github.com/uBlockOrigin/uAssets/issues/521
+addEventListener-logger.js application/javascript
+(function() {
+	var z = self.EventTarget.prototype.addEventListener;
+	self.EventTarget.prototype.addEventListener = function(a, b) {
+		console.log('addEventListener("%s", %s)', a, b.toString());
+		return z.apply(this, arguments);
+	};
+})();
+
+
+# https://github.com/uBlockOrigin/uAssets/issues/521
+addEventListener-defuser.js application/javascript
+(function() {
+	var needle1 = '{{1}}',
+		needle2 = '{{2}}',
+		z = self.EventTarget.prototype.addEventListener;
+	if ( needle1 === '' || needle1 === '{{1}}' ) {
+		needle1 = '.?';
+	} else if ( /^\/.+\/$/.test(needle1) ) {
+		needle1 = needle1.slice(1,-1);
+	} else {
+		needle1 = needle1.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+	}
+	needle1 = new RegExp(needle1);
+	if ( needle2 === '' || needle2 === '{{2}}' ) {
+		needle2 = '.?';
+	} else if ( /^\/.+\/$/.test(needle2) ) {
+		needle2 = needle2.slice(1,-1);
+	} else {
+		needle2 = needle2.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+	}
+	needle2 = new RegExp(needle2);
+	self.EventTarget.prototype.addEventListener = function(a, b) {
+		if ( needle1.test(a.toString()) && needle2.test(b.toString()) ) {
+			return;
+		}
+		return z.apply(this, arguments);
+	};
+})();
+
+
+# https://github.com/uBlockOrigin/uAssets/issues/531
+# Scriptlet below borrowed from:
+#   https://github.com/AdguardTeam/AdguardFilters/blob/master/RussianFilter/sections/antiadblock.txt
+palacesquare.rambler.ru-defuser.js application/javascript
+(function() {
+	var w = window,
+		pr = w.Promise,
+		tostr = Function.prototype.toString;
+	w.Promise = function(executor) {
+		if ( tostr.call(executor).indexOf('getRandomSelector') !== -1 ) {
+			throw new Error();
+		} else {
+			return new pr(executor);
+		}
+	}.bind();
+	Object.getOwnPropertyNames(pr).forEach(function(propName) {
+		Object.defineProperty(w.Promise, propName, Object.getOwnPropertyDescriptor(pr, propName));
+	});
+	pr.prototype.constructor = w.Promise;
+})();
+
+
+# https://www.reddit.com/r/uBlockOrigin/comments/6nrayv/new_to_using_ublock_origin_its_breaking_videos_on/
+# https://github.com/gorhill/uBlock/issues/2835
+gamespot.com.js application/javascript
+(function() {
+	if ( typeof window.pf_notify === 'function' ) {
+		window.pf_notify(false);
+	}
+})();
+
+
+# https://github.com/uBlockOrigin/uAssets/issues/618
+abort-current-inline-script.js application/javascript
+(function() {
+	var target = '{{1}}';
+	if ( target === '' || target === '{{1}}' ) { return; }
+	var needle = '{{2}}', reText = '.?';
+	if ( needle !== '' && needle !== '{{2}}' ) {
+		reText = /^\/.+\/$/.test(needle)
+			? needle.slice(1,-1)
+			: needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+	}
+	var re = new RegExp(reText);
+	var chain = target.split('.');
+	var owner = window, prop;
+	for (;;) {
+		prop = chain.shift();
+		if ( chain.length === 0 ) { break; }
+		owner = owner[prop];
+		if ( owner instanceof Object === false ) { return; }
+	}
+	var desc = Object.getOwnPropertyDescriptor(owner, prop);
+	if ( desc && desc.get !== undefined ) { return; }
+	var magic = String.fromCharCode(Date.now() % 26 + 97) +
+				Math.floor(Math.random() * 982451653 + 982451653).toString(36);
+	var value = owner[prop];
+	Object.defineProperty(owner, prop, {
+		get: function() {
+			var script = document.currentScript;
+			if (
+				script instanceof HTMLScriptElement === false ||
+				script.src !== '' ||
+				re.test(script.textContent) === false
+			) {
+				return value;
+			}
+			throw new ReferenceError(magic);
+		}
+	});
+	var oe = window.onerror;
+	window.onerror = function(msg) {
+		if ( typeof msg === 'string' && msg.indexOf(magic) !== -1 ) {
+			return true;
+		}
+		if ( oe instanceof Function ) {
+			return oe.apply(this, arguments);
+		}
+	}.bind();
 })();
