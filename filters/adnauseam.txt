@@ -87,6 +87,9 @@ sohu.com##DIV[id^="beans_"]
 ##iframe[src*='sinaads']
 ##iframe[src*='2mdn']
 
+# Twitch
+##iframe[src*="imasdk.googleapis.com/js"]
+
 # qq.com
 qq.com##iframe[src*='gtimg']
 ##iframe[src*='tanx']
@@ -326,6 +329,12 @@ google.*##.mnr-c.rl-qs-crs-t._Db > ._gt:has(._mB)
 ||tap-secure.rubiconproject.com^$important
 ||secure-assets.rubiconproject.com^$important
 ||pixel.rubiconproject.com^$important
+
+# Twitch
+||innovid.com^
+||imasdk.googleapis.com/js^
+||gcdn.2mdn.net/videoplayback^
+
 
 # google
 ||googleads.g.doubleclick.net/pagead/gen^$important
