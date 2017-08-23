@@ -374,3 +374,5 @@ google.*##.mnr-c.rl-qs-crs-t._Db > ._gt:has(._mB)
 
 # crunchyroll.com
 ||v.fwmrm.net^$important,third-party,domain=crunchyroll.com
+
+||functionalclam.com^$third-party
