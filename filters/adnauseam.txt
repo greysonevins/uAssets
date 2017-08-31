@@ -331,9 +331,9 @@ google.*##.mnr-c.rl-qs-crs-t._Db > ._gt:has(._mB)
 ||pixel.rubiconproject.com^$important
 
 # Twitch
-||innovid.com^
-||imasdk.googleapis.com/js^
-||gcdn.2mdn.net/videoplayback^
+||innovid.com^$important
+||pubads.g.doubleclick.net/gampad/ads$important,xmlhttprequest,domain=imasdk.googleapis.com
+||gcdn.2mdn.net/videoplayback^$important
 
 
 # google
