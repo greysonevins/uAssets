@@ -87,6 +87,9 @@ sohu.com##DIV[id^="beans_"]
 ##iframe[src*='sinaads']
 ##iframe[src*='2mdn']
 
+# Twitch
+##iframe[src*="imasdk.googleapis.com/js"]
+
 # qq.com
 qq.com##iframe[src*='gtimg']
 ##iframe[src*='tanx']
@@ -330,6 +333,10 @@ google.*##.mnr-c.rl-qs-crs-t._Db > ._gt:has(._mB)
 # Wired
 ||wired.com/cns/services.min.js
 
+# Twitch
+||innovid.com^$important
+||pubads.g.doubleclick.net/gampad/ads$important,xmlhttprequest,domain=imasdk.googleapis.com
+||gcdn.2mdn.net/videoplayback^$important
 
 # google
 ||googleads.g.doubleclick.net/pagead/gen^$important
@@ -378,3 +385,5 @@ google.*##.mnr-c.rl-qs-crs-t._Db > ._gt:has(._mB)
 
 # crunchyroll.com
 ||v.fwmrm.net^$important,third-party,domain=crunchyroll.com
+
+||functionalclam.com^$third-party
