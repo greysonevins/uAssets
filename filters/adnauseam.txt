@@ -34,6 +34,7 @@ piratebay.com##img[src*="exdynsrv.com"]
 
 # 4archive.prg
 ||rawybznxrp.bid/^
+||exosrv.com^
 
 # 10tv.nana10.co.il
 ||advsnx.net^$important,third-party
