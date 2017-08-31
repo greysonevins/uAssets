@@ -93,9 +93,6 @@ qq.com##iframe[src*='gtimg']
 ##DIV[class="l_qq_com"]
 ##a[href*='srd.simba.taobao.com']
 
-# Wired.com
-##DIV[id*="wiredcom"]
-
 # zol.com.cn
 ##DIV[class*="zmall-ad"]
 ##iframe[src*='zol.com.cn/ad/']
@@ -331,7 +328,8 @@ google.*##.mnr-c.rl-qs-crs-t._Db > ._gt:has(._mB)
 ||pixel.rubiconproject.com^$important
 
 # Wired
-||tpc.googlesyndication.com/safeframe^
+||wired.com/cns/services.min.js
+
 
 # google
 ||googleads.g.doubleclick.net/pagead/gen^$important
