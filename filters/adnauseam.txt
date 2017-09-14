@@ -254,6 +254,8 @@ google.*##.mnr-c.rl-qs-crs-t._Db > ._gt:has(._mB)
 # common ad in cz
 ##div[id^="bmone"]
 
+www.28hse.com###universal_banner_sq_ads
+
 # crunchyroll.com
 ||v.fwmrm.net^$important,third-party,domain=crunchyroll.com
 
@@ -402,4 +404,3 @@ google.*##.mnr-c.rl-qs-crs-t._Db > ._gt:has(._mB)
 
 # cisco
 @@||tiqcdn.com$third-party,domain=cisco.com
-
