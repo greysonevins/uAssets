@@ -254,6 +254,15 @@ google.*##.mnr-c.rl-qs-crs-t._Db > ._gt:has(._mB)
 # common ad in cz
 ##div[id^="bmone"]
 
+# crunchyroll.com
+||v.fwmrm.net^$important,third-party,domain=crunchyroll.com
+
+# functionalclam.com
+||functionalclam.com^$third-party
+
+# pinterest
+||pinterest.*##div:nth-of-type(2) > div:nth-of-type(2) > div
+
 # Blocking rules below here
 ||images.sohu.com/bill/s2015/jscript/lib/sjs/matrix/ad/form/bigView.js^$important
 ||teads.tv^$important,third-party,domain=mingpao.com
@@ -363,6 +372,13 @@ google.*##.mnr-c.rl-qs-crs-t._Db > ._gt:has(._mB)
 ||eviltracker.net^$important
 ||trackersimulator.org^$important
 
+# crunchyroll.com
+||v.fwmrm.net^$important,third-party,domain=crunchyroll.com
+
+||functionalclam.com^$third-party
+
+##div:nth-of-type(2) > div:nth-of-type(2) > div
+
 # Exceptions below here
 # Requests that influence visual ads
 
@@ -388,7 +404,3 @@ google.*##.mnr-c.rl-qs-crs-t._Db > ._gt:has(._mB)
 # cisco
 @@||tiqcdn.com$third-party,domain=cisco.com
 
-# crunchyroll.com
-||v.fwmrm.net^$important,third-party,domain=crunchyroll.com
-
-||functionalclam.com^$third-party

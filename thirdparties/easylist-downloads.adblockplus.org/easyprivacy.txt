@@ -1,15 +1,15 @@
 [Adblock Plus 1.1]
-! Version: 201708230830
+! Version: 201709131659
 ! Title: EasyPrivacy
-! Last modified: 23 Aug 2017 08:30 UTC
+! Last modified: 13 Sep 2017 16:59 UTC
 ! Expires: 4 days (update frequency)
 ! Homepage: https://easylist.to/
 ! Licence: https://easylist.to/pages/licence.html
-!
+! 
 ! Please report any unblocked tracking or problems
 ! in the forums (https://forums.lanik.us/)
 ! or via e-mail (easylist.subscription@gmail.com).
-!
+! 
 ! -----------------General tracking systems-----------------!
 ! *** easylist:easyprivacy/easyprivacy_general.txt ***
 &ctxId=*&pubId=*&objId=
@@ -424,7 +424,9 @@
 /amazon-affiliate-
 /amdhfp/a.do?param$image
 /amdhfp/t.do?id$image
+/amp/amp-analytics-
 /amplitude-*.js$script
+/ampmetrics.
 /amptrack.
 /analiz.php3?
 /AnalTrack.js
@@ -697,6 +699,7 @@
 /boomLogger.
 /boost_stats.
 /botd.gif?
+/bounce_user_tracking-
 /bower_components/fp/fp.js
 /br-trk-
 /br-trk.
@@ -932,6 +935,7 @@
 /cookiebean?
 /CookieLawStats/*
 /CookieMapping?
+/CookiePingback?
 /CookieSetterAS3.
 /cookietag?
 /coradiant.js
@@ -1310,7 +1314,7 @@
 /gapro-1.swf
 /gapro-1h.swf
 /gapro.swf
-/GARecord?
+/GARecord^
 /gascript.
 /gasocialtracking.
 /gaStatistics.js
@@ -1642,6 +1646,7 @@
 /js/tracking.js
 /js/tracking.min.js?
 /js/tracking/*
+/js/tracking_
 /js/trk_
 /js_hotlink.php?
 /js_logger.
@@ -1664,6 +1669,7 @@
 /keen-tracker.
 /keen-tracking-
 /keen.min.js
+/keenio.min.js
 /kejobscounter.
 /Kelkooid?
 /kelkooSponsoredLinks.
@@ -1697,6 +1703,7 @@
 /linktracker.js
 /linktracker/*
 /linktracking.
+/listener.php?userRef=
 /livezilla/server.php?request=track&
 /load.gif?
 /load.js.gz?
@@ -2147,6 +2154,7 @@
 /pixel.track?
 /pixel/*?url=
 /pixel/?__tracker
+/pixel/conv/*
 /pixel/cv?
 /pixel/cv_
 /pixel/img/*
@@ -2935,6 +2943,7 @@
 /tracking_clic.
 /tracking_clickevents.
 /tracking_cookie_baker.
+/tracking_eh.
 /tracking_frame_
 /tracking_headerJS_
 /tracking_id_
@@ -3094,7 +3103,9 @@
 /v53nse.js
 /v60.js
 /valueclickbrands/*
+/vanillaanalytics/*
 /vanillastats/*
+/vanillastatsapp/*
 /vastlog.txt?
 /vblank.gif?
 /vblntpagetag.
@@ -5487,6 +5498,7 @@ _mongo_stats/
 ||triggertag.gorillanation.com^$third-party
 ||triggit.com^$third-party
 ||trkjmp.com^$third-party
+||trkn.us^$third-party
 ||trksrv44.com^$third-party
 ||trovus.co.uk^$third-party
 ||trs.cn^$third-party
@@ -6718,6 +6730,7 @@ _mongo_stats/
 ||amazonaws.com^*.kissmetrics.com/
 ||amazonaws.com^*/pageviews
 ||amazonaws.com^*/track.js$domain=hitfix.com
+||amplify.outbrain.com^$third-party
 ||amplifypixel.outbrain.com^
 ||ams.addflow.ru^
 ||an.yandex.ru^
@@ -6793,6 +6806,7 @@ _mongo_stats/
 ||analytics.tout.com^
 ||analytics.tribeca.vidavee.com^
 ||analytics.urx.io^
+||analytics.vanillaforums.com^
 ||analytics.vendemore.com^
 ||analytics.websolute.it^
 ||analytics.wildtangent.com^
@@ -7872,6 +7886,7 @@ _mongo_stats/
 ||px.excitedigitalmedia.com^
 ||px.marchex.io^
 ||px.owneriq.net^
+||px.reactrmod.com^
 ||px.spiceworks.com^
 ||px.topspin.net^
 ||qlog.adap.tv^$object-subrequest
@@ -8208,6 +8223,7 @@ _mongo_stats/
 ||track.kandle.org^
 ||track.leadin.com^
 ||track.mailerlite.com^
+||track.mobicast.io^
 ||track.mybloglog.com^
 ||track.mycliplister.com^
 ||track.omg2.com^
@@ -9135,6 +9151,8 @@ _mongo_stats/
 ||counter.mtgnewmedia.se^
 ||stats.dominoplaza.com^
 ||vizzit.se^$third-party
+! Thai
+||sal.isanook.com^
 ! Turkish
 ||analytic.piri.net^
 ||analyticapi.piri.net^
@@ -9144,7 +9162,7 @@ _mongo_stats/
 ||metalportal.com.ua/count.php?
 ||mgz.com.ua/counter.php?
 ||top.zp.ua/counter/
-! Vietnam
+! Vietnamese
 ||analytics.mecloud.vn^
 ! -----------------Individual tracking systems-----------------!
 ! *** easylist:easyprivacy/easyprivacy_specific.txt ***
@@ -12838,7 +12856,7 @@ _mongo_stats/
 @@||netinsight.travelers.com/scripts/ntpagetaghttps.js
 @@||nettix.fi^*_analytics.js
 @@||networkworld.com^*/demandbase.js
-@@||newrelic.com/nr-*.min.js$domain=play.spotify.com
+@@||newrelic.com/nr-*.min.js$domain=play.spotify.com|surveymonkey.co.uk|surveymonkey.com|surveymonkey.de|surveymonkey.ru
 @@||newrelic.com/public/charts/$subdocument,xmlhttprequest
 @@||newsinc.com/getids?uid=$script,domain=ap.org
 @@||newsinc.com^*/getPlacements.js?pid=$xmlhttprequest,domain=ap.org|csmonitor.com
@@ -13297,6 +13315,7 @@ _mongo_stats/
 @@||googletagmanager.com/gtm.js?$domain=autorevue.cz|e15.cz|mobilmania.cz|sportrevue.cz|zive.cz
 ! Danish
 @@||adobedtm.com^*/satelliteLib-$script,domain=elgiganten.dk
+@@||advertisers.dk/wp-content/uploads/*/google-analytics.$image,domain=advertisers.dk
 @@||bilka.dk/assets/ext/adobe/VisitorAPI.js
 @@||cxense.com/cx.js$domain=common.tv2.dk
 @@||dbastatic.dk/Content/scripts/analytics.js$script
@@ -13454,4 +13473,4 @@ _mongo_stats/
 @@||uaprom.net/image/blank.gif?$image
 ! Anti-Adblock
 @@|http://r.i.ua/s?*&p*&l$image,domain=swordmaster.org
-! Checksum: Hng2cDjZ5nxUpmHDdPXOcA
+! Checksum: 7MNMqhZN+3+vcN7GDEkTUQ
