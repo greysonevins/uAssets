@@ -377,9 +377,8 @@ google.*##.mnr-c.rl-qs-crs-t._Db > ._gt:has(._mB)
 
 ||functionalclam.com^$third-party
 
-##div:nth-of-type(2) > div:nth-of-type(2) > div
+##################### Exceptions below here ########################
 
-# Exceptions below here
 # Requests that influence visual ads
 
 # From DisabledBlockingRules[Blocking rules from EasyPrivacy]
