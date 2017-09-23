@@ -240,6 +240,11 @@ radikal.ru##div[id^="DIV_DA_ADP"]
 ##img[src*="delivery.clickganic.com"]
 optoclick.net##.vjs-poster
 
+# convert2mp3
+##iframe[src*="ads/ad"]
+##iframe[src*="liveadexchanger"]
+##a[href*="liveadexchanger"]
+
 # dailymotion.com
 dailymotion.com##.gwd-page-content
 dailymotion.com##.gwd-page-container
