@@ -407,5 +407,8 @@ www.28hse.com###universal_banner_sq_ads
 @@||ssl.gstatic.com/gb/images/
 @@||ssl.gstatic.com/images/
 
+# pikabu.ru
+@@||an.yandex.ru^$third-party,domain=pikabu.ru
+
 # cisco
 @@||tiqcdn.com$third-party,domain=cisco.com
