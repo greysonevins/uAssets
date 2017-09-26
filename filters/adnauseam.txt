@@ -126,6 +126,9 @@ fortune.com##.small-12.column > .row:nth-of-type(2) > .small-12.column > .row > 
 ##img[src*="ubmcmm.baidustatic"]
 @@||pos.baidu.com$subdocument,domain=music.baidu.com
 
+# Convert2MP3
+||convert2mp3.net/ads^
+
 weibo.com##DIV[id*="adcontent"]
 weibo.com##DIV[class*="advert"]
 
