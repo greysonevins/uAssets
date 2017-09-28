@@ -261,6 +261,10 @@ google.*##.mnr-c.rl-qs-crs-t._Db > ._gt:has(._mB)
 
 www.28hse.com###universal_banner_sq_ads
 
+#coinmarketcap.com
+coinmarketcap.com###enjoin-header
+||ctnet2.in^$third-party,important
+
 # crunchyroll.com
 ||v.fwmrm.net^$important,third-party,domain=crunchyroll.com
 
