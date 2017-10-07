@@ -75,6 +75,9 @@ columbiagreenemedia.com###sawyer_container
 163.com##a[href*='AID']
 ##a[href*='kaolaad']
 
+# pandora
+##*[id*="ad1"]
+
 # root.cz
 root.cz##.owl-stage-outer
 root.cz##.promo
@@ -406,6 +409,9 @@ www.28hse.com###universal_banner_sq_ads
 # google icon images
 @@||ssl.gstatic.com/gb/images/
 @@||ssl.gstatic.com/images/
+
+# pandora
+@@||www.pandora.com^
 
 # cisco
 @@||tiqcdn.com$third-party,domain=cisco.com
