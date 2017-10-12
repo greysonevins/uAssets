@@ -255,6 +255,11 @@ dailymotion.com##.gwd-page-container
 # mac-torrent-download.net
 mac-torrent-download.net##.ad-box > a > img
 
+# last.fm
+last.fm##.related-ads
+last.fm##.video-ad
+last.fm##.lastfm-ad
+
 # Google ads
 #@#.adsbygoogle
 ##iframe[id="ad_iframe"]
