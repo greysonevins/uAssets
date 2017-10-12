@@ -399,6 +399,9 @@ coinmarketcap.com###enjoin-header
 
 ||functionalclam.com^$third-party
 
+# observer.com
+||wibbitz.com$domain=observer.com
+
 ##################### Exceptions below here ########################
 
 # Requests that influence visual ads
