@@ -107,7 +107,7 @@ qq.com##iframe[src*='gtimg']
 # zol.com.cn
 ##DIV[class*="zmall-ad"]
 ##iframe[src*='zol.com.cn/ad/']
-##DIV[class="ad-box"]
+zol.com.cn##DIV[class="ad-box"]
 
 
 # Fortune.com
