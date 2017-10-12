@@ -252,6 +252,9 @@ optoclick.net##.vjs-poster
 dailymotion.com##.gwd-page-content
 dailymotion.com##.gwd-page-container
 
+# mac-torrent-download.net
+mac-torrent-download.net##.ad-box > a > img
+
 # Google ads
 #@#.adsbygoogle
 ##iframe[id="ad_iframe"]
