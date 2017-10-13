@@ -253,7 +253,12 @@ dailymotion.com##.gwd-page-content
 dailymotion.com##.gwd-page-container
 
 # mac-torrent-download.net
+@@||www.googletagmanager.com^$script,domain=mac-torrent-download.net
 mac-torrent-download.net##.ad-box > a > img
+mac-torrent-download.net##.ad-box > .textwidget
+mac-torrent-download.net##.ad-kijisita
+mac-torrent-download.net##iframe[class*="it-client"]
+mac-torrent-download.net##div > .ad-box.round-btn-parent
 
 # last.fm
 last.fm##.related-ads
@@ -398,6 +403,9 @@ coinmarketcap.com###enjoin-header
 ||v.fwmrm.net^$important,third-party,domain=crunchyroll.com
 
 ||functionalclam.com^$third-party
+
+# observer.com
+||wibbitz.com$domain=observer.com
 
 ##################### Exceptions below here ########################
 
