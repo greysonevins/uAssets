@@ -76,7 +76,7 @@ columbiagreenemedia.com###sawyer_container
 ##a[href*='kaolaad']
 
 # pandora
-##*[id*="ad1"]
+pandora.com##*[id*="ad1"]
 
 # root.cz
 root.cz##.owl-stage-outer
